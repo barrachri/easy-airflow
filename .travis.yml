@@ -1,0 +1,20 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+
+script:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - export REPO=barrachri/easy-airflow
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push $REPO; else echo "Skip docker push"; fi
