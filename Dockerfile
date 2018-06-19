@@ -24,7 +24,7 @@ RUN pip install apache-airflow[crypto,postgres,jdbc,password,slack]==$AIRFLOW_VE
 
 RUN adduser -Ds /bin/bash -h ${AIRFLOW_HOME} airflow
 
-COPY script/create_user.py /create_user.py
+COPY script/create_user.py ${AIRFLOW_HOME}/create_user.py
 COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 

@@ -18,9 +18,17 @@ Based on [puckel/docker-airflow](https://github.com/puckel/docker-airflow)
 
 ## Installation
 
-Pull the image from the Docker repository.
+Clone the repo and then
 
-    docker pull barrachri/easy-airflow
+    docker-compose up -d
+
+
+## Installation
+
+Clone the repo and then
+
+    docker-compose run airflow python create_user.py YourEmail YourPassword
+
 
 ## Build
 
