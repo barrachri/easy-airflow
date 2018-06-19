@@ -12,9 +12,10 @@ branches:
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
+    - AIRFLOW_VERSION=1.9.0
 
 script:
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
   - export REPO=barrachri/easy-airflow
-  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker build -f Dockerfile --build-arg AIRFLOW_VERSION=$AIRFLOW_VERSION -t $REPO:$AIRFLOW_VERSION .
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push $REPO; else echo "Skip docker push"; fi
