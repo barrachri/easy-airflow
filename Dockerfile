@@ -12,6 +12,7 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LC_MESSAGES en_US.UTF-8
 
 RUN apk add --update \
+    bash \
     build-base \
     linux-headers \
     python3-dev \
