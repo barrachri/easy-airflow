@@ -23,7 +23,7 @@ Clone the repo and then
 
 With airflow container running
 
-    docker-compose run --rm python create_user.py YourEmail YourPassword
+    docker-compose run --rm airflow python create_user.py YourEmail YourPassword
 
 ## Build
 
