@@ -12,7 +12,8 @@ branches:
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
-    - AIRFLOW_VERSION=1.9.0
+    - AIRFLOW_VERSION=1.10.0
+    - AIRFLOW_GPL_UNIDECODE=yes
 
 script:
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin

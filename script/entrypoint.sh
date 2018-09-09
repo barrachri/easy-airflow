@@ -21,10 +21,7 @@ case "$1" in
   webserver)
     wait_for_port "Postgres" "$POSTGRES_HOST" "$POSTGRES_PORT"
     airflow initdb
-    if [ "$AIRFLOW__CORE__EXECUTOR" = "LocalExecutor" ]; then
-      # With the "Local" executor it should all run in one container.
-      airflow scheduler &
-    fi
+    airflow scheduler &
     exec airflow webserver
     ;;
   worker|scheduler)
